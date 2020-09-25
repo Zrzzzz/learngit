@@ -1,8 +1,4 @@
-filetype off " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'Valloric/YouCompleteMe'
-call vundle#end()
+
 syntax on
 set shiftwidth=4
 set tabstop=4
@@ -10,12 +6,6 @@ set tabstop=4
 filetype off " required
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-
-"添加YouCompleteMe插件，必须在begin()和end()中间插入
-Plugin 'Valloric/YouCompleteMe'
-
-call vundle#end()
 filetype plugin indent on
 syntax on
 set shiftwidth=4
@@ -74,8 +64,6 @@ set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'VundleVim/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
