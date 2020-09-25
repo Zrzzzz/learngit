@@ -1,0 +1,344 @@
+filetype off " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+syntax on
+set shiftwidth=4
+set tabstop=4
+
+filetype off " required
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+"添加YouCompleteMe插件，必须在begin()和end()中间插入
+Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
+filetype plugin indent on
+syntax on
+set shiftwidth=4
+set tabstop=4
+
+syntax on
+set nu
+set ts=4
+set nobackup
+set noswapfile
+set expandtab
+set nocompatible
+set nocp
+set modelines=0
+set backspace=2
+syntax on 
+autocmd InsertLeave * se nocul
+autocmd InsertEnter * se cul
+set smartindent 
+set autoindent
+set confirm 
+set tabstop=4 
+set softtabstop=4
+set shiftwidth=4 
+set expandtab 
+set number
+set history=50  
+set hlsearch
+set incsearch
+set gdefault
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936,utf-16,big5,euc-jp,latin1
+set guifont=Menlo:h16:cANSI 
+set langmenu=zn_CN.UTF-8
+set helplang=cn 
+set ruler 
+set laststatus=1 
+set showcmd 
+set scrolloff=3
+set showmatch 
+set matchtime=5
+set autowrite 
+set wildmenu  
+set linespace=2 
+set whichwrap=b,s,<,>,[,] 
+set foldenable  
+set cursorline 
+set magic  
+set ignorecase
+set background=dark
+set t_Co=256   
+set mouse=i 
+set backspace=indent,eol,start
+set nocompatible
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'VundleVim/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'majutsushi/tagbar'
+Plugin 'whatyouhide/vim-gotham'
+
+"MatchTagAlways
+Bundle 'Valloric/MatchTagAlways'
+
+"Markdown语法高亮
+Bundle 'godlygeek/tabular'
+"Bundle 'plasticboy/vim-markdown'
+"markdown实时显示
+Bundle 'suan/vim-instant-markdown'
+
+
+"indentLine 代码缩进线标志线
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 239
+let g:indentLine_enabled = 1
+"映射到ctrl+I键
+"map <C-i> :IndentLinesToggle<CR>
+
+"delimitMate 自动补全引号(单引号/双引号/反引号), 括号(()[]{})
+Bundle 'Raimondi/delimitMate'
+
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+
+filetype plugin indent on
+
+autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+set completeopt=longest,menu
+highlight Pmenu    guibg=darkgrey  guifg=black
+highlight PmenuSel guibg=lightgrey guifg=black
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+
+let g:ycm_goto_buffer_command = 'horizontal-split'
+let g:ycm_server_python_interpreter='/usr/bin/python2'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:airline#extensions#tabline#enabled = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_cache_omnifunc=0
+let g:ycm_confirm_extra_conf=0
+
+
+syntax enable
+"colorscheme solarized
+"colorscheme gotham
+"colorscheme jellybeans
+let g:solarized_termcolors=256
+
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+map <C-b> :NERDTreeToggle<CR>
+
+
+map <C-m> :Tagbar<CR>
+let g:tagbar_ctags_bin='ctags'
+let g:tagbar_width=30
+
+"====================================
+
+"    FileName: .vimrc
+
+"    Author:   ce
+
+"    Version:  1.0.0
+
+"    Email:    zbing3@gmail.com
+
+"    Blog: http://opslinux.com
+
+"    Date: 2013-7-23
+
+"=============================================
+
+"==================================
+
+"    Vim基本配置
+
+"===================================
+
+"关闭vi的一致性模式 避免以前版本的一些Bug和局限
+
+set nocompatible
+
+"配置backspace键工作方式
+
+set backspace=indent,eol,start
+
+"显示行号
+
+set number
+
+"设置在编辑过程中右下角显示光标的行列信息
+
+set ruler
+
+"当一行文字很长时取消换行
+
+"set nowrap
+
+"在状态栏显示正在输入的命令
+
+set showcmd
+
+"设置历史记录条数
+
+set history=1000
+
+"设置取消备份 禁止临时文件生成
+
+set nobackup
+
+set noswapfile
+
+"突出现实当前行列
+
+"set cursorline
+
+"set cursorcolumn
+
+"设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
+
+set showmatch
+
+"设置C/C++方式自动对齐
+
+set autoindent
+
+set cindent
+
+"开启语法高亮功能
+
+syntax enable
+
+syntax on
+
+"指定配色方案为256色
+
+set t_Co=256
+
+"设置搜索时忽略大小写
+
+set ignorecase
+
+"设置在Vim中可以使用鼠标 防止在Linux终端下无法拷贝
+
+set mouse=a
+
+"设置Tab宽度
+
+set tabstop=4
+
+"设置自动对齐空格数
+
+set shiftwidth=4
+
+"设置按退格键时可以一次删除4个空格
+
+set softtabstop=4
+
+"设置按退格键时可以一次删除4个空格
+
+set smarttab
+
+"将Tab键自动转换成空格 真正需要Tab键时使用[Ctrl + V + Tab]
+
+set expandtab
+
+"设置编码方式
+
+set encoding=utf-8
+
+"自动判断编码时 依次尝试一下编码
+
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+"检测文件类型
+
+filetype on
+
+"针对不同的文件采用不同的缩进方式
+
+filetype indent on
+
+"允许插件
+
+filetype plugin on
+
+"启动智能补全
+
+filetype plugin indent on
+
+"以上都是vim的一些基本配置，开始使用Vundle还需要以下配置
+
+"==================================
+
+"    开始使用Vundle的必须配置始使用Vundle的必须配置
+
+"===================================
+
+
+"使用Vundle来管理Vundle
+
+Bundle 'gmarik/vundle'
+
+"PowerLine插件 状态栏增强展示
+
+Bundle 'Lokaltog/vim-powerline'
+
+"安装NERD-tree
+
+
+Bundle 'The-NERD-tree'
+
+
+"Vundle配置必须 开启插件
+
+filetype plugin indent on
+
+"vim有一个状态栏 加上powline则有两个状态栏
+
+"设置powerline状态栏
+
+set laststatus=2
+
+set t_Co=256
+
+let g:Powline_symbols='fancy'
+
+set nocompatible
+
+set enc=utf-8
+
+let termencoding=&encoding
+
+set fileencodings=utf-8,gbk,ucs-bom,cp936
+
+set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
+
+"设置NERDTree的选项
+
+let NERDTreeMinimalUI=1
+
+let NERDChristmasTree=1
+
+
+
